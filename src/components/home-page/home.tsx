@@ -2,8 +2,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { galaryImages } from "@/data/galary-images";
 import { offers } from "@/data/offer";
@@ -143,7 +141,7 @@ export function OffersSection({
         </div>
 
         {/* Cards */}
-        <div className="mt-12 flex items-center justify-center gap-8 pb-6">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 pb-6">
           {offers.map((offer, i) => (
             <div
               key={offer.image}
@@ -348,52 +346,68 @@ export function Testimonials({
     <section className={cn(`py-20`, className)} {...props}>
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 lg:grid-cols-2">
         {/* LEFT TEXT */}
-        <div>
-          <h2 className="text-3xl leading-snug font-semibold text-gray-900 md:text-4xl">
-            WHAT OUR SATISFIED <br /> CLIENTS SAY ABOUT US
-          </h2>
-        </div>
+        <h2 className="text-3xl font-semibold text-gray-900 md:text-4xl">
+          <span>WHAT OUR SATISFIED</span>
+          <br />
+          <span>CLIENTS SAY ABOUT US</span>
+        </h2>
 
         {/* RIGHT CAROUSEL */}
-        <div className="relative">
-          <Carousel className="w-full">
-            <CarouselContent>
-              {reviews.map((review, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative rounded-3xl p-6 shadow-sm md:p-10">
-                    {/* TEXT */}
-                    <p className="text-sm leading-relaxed text-gray-700 md:text-base">
-                      {review.text}
-                    </p>
 
-                    {/* USER */}
-                    <div className="mt-8 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="h-10 w-10 overflow-clip rounded-full bg-gray-300">
-                          {review.avatarImage && review.avatarImage !== "" && (
-                            <img src={review.avatarImage} alt="avatar" />
-                          )}
-                        </div>
-                        <div>
-                          <div className="text-sm font-medium text-gray-900">
-                            {review.name}
-                          </div>
-                          <div className="text-xs text-gray-500">
-                            {review.location}
+        <div className="relative w-full min-w-0">
+          <div className="overflow-x-hidden">
+            <Carousel className="relative w-full">
+              <CarouselContent className="flex">
+                {reviews.map((review, index) => (
+                  <CarouselItem
+                    key={index}
+                    className="shrink-0 grow-0 basis-full"
+                  >
+                    <div className="px-1 py-2">
+                      <div className="relative box-border w-full rounded-3xl p-6 shadow-sm md:p-10">
+                        {/* TEXT */}
+                        <p className="text-sm leading-relaxed wrap-break-word text-gray-700 md:text-base">
+                          {review.text}
+                        </p>
+
+                        {/* USER */}
+                        <div className="mt-8 flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            {/* AVATAR */}
+                            <div className="h-10 w-10 overflow-hidden rounded-full bg-gray-300">
+                              {review.avatarImage && (
+                                <img
+                                  src={review.avatarImage}
+                                  alt={review.name}
+                                  className="h-full w-full object-cover"
+                                />
+                              )}
+                            </div>
+
+                            {/* INFO */}
+                            <div>
+                              <div className="text-sm font-medium text-gray-900">
+                                {review.name}
+                              </div>
+                              <div className="text-xs text-gray-500">
+                                {review.location}
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            {/* ARROWS */}
-            <div className="absolute right-0 bottom-0 flex items-center gap-3">
-              <CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-full border border-gray-400" />
-              <CarouselNext className="static h-10 w-10 translate-y-0 rounded-full border border-gray-400" />
-            </div>
-          </Carousel>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+
+              {/* ARROWS */}
+              {/* <div className={cn(`absolute right-12 bottom-4 flex`)}>
+                <CarouselPrevious />
+                <CarouselNext />
+              </div> */}
+            </Carousel>
+          </div>
         </div>
       </div>
     </section>

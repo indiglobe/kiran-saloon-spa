@@ -12,8 +12,10 @@ export function Footer({ className, ...props }: ComponentProps<"footer">) {
           `mx-auto flex max-w-7xl flex-col items-center justify-center gap-y-4 px-4 sm:px-6 md:flex-row md:justify-between lg:px-8`
         )}
       >
-        <div>&copy; 2026 Kiran Family Sallon and Spa all right reserve.</div>
-        <div>
+        <div className={cn(`max-md:text-center`)}>
+          &copy; 2026 Kiran Family Sallon and Spa all right reserve.
+        </div>
+        <div className={cn(`max-md:text-center`)}>
           Developed by{" "}
           <a href="https://indiglobe.in" className={cn(`underline`)}>
             Indiglobe
