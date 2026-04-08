@@ -141,7 +141,7 @@ export function OffersSection({
         </div>
 
         {/* Cards */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 pb-6">
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 pb-6 md:flex-nowrap">
           {offers.map((offer, i) => (
             <div
               key={offer.image}
@@ -152,7 +152,7 @@ export function OffersSection({
                 <img
                   src={offer.image}
                   alt={`${offer}-${i + 1}`}
-                  className="h-full w-full object-contain transition duration-300"
+                  className="h-full max-h-100 w-full object-contain transition duration-300"
                 />
               </div>
             </div>
