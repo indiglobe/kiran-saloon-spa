@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main # Change if you use a different branch
+    paths-ignore:
+      - "**/*.md"
+      - ".github/**"
 
 jobs:
   build-and-deploy:
