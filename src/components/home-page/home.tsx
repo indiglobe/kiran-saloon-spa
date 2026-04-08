@@ -12,6 +12,13 @@ import { cn } from "@/lib/utils/cn";
 import AutoPlay from "embla-carousel-autoplay";
 import { useState, type ComponentProps } from "react";
 import { Link } from "react-router";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
+import { Button } from "../ui/button";
 
 export function HeroSection({
   className,
@@ -141,21 +148,35 @@ export function OffersSection({
         </div>
 
         {/* Cards */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 pb-6 md:flex-nowrap">
-          {offers.map((offer, i) => (
-            <div
-              key={offer.image}
-              className="group overflow-hidden bg-white shadow-sm transition hover:shadow-lg"
-            >
-              {/* Image */}
-              <div className="relative w-full overflow-hidden">
-                <img
-                  src={offer.image}
-                  alt={`${offer}-${i + 1}`}
-                  className="h-full max-h-100 w-full object-contain transition duration-300"
-                />
-              </div>
-            </div>
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-8 pb-6">
+          {offers.map(({ image }, i) => (
+            <Dialog key={image}>
+              <DialogTrigger asChild>
+                <Button
+                  variant={"none"}
+                  className={cn(`relative h-auto w-full max-w-100`)}
+                >
+                  <img
+                    src={image}
+                    alt={`offer-${i + 1}`}
+                    className="max-h-100 w-full object-contain transition duration-300"
+                  />
+                </Button>
+              </DialogTrigger>
+              <DialogContent
+                showCloseButton={false}
+                className={cn(`max-w-[calc(100%-1rem)] p-2 sm:max-w-xl sm:p-4`)}
+              >
+                <DialogTitle className={cn(`hidden`)}></DialogTitle>
+                <div className={cn(`overflow-clip rounded-md sm:rounded-xl`)}>
+                  <img
+                    src={image}
+                    alt={`offer-${i + 1}`}
+                    className="h-auto w-full object-contain transition duration-300"
+                  />
+                </div>
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
       </div>
