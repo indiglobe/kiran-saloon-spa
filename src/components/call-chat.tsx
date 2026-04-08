@@ -3,6 +3,13 @@ import { LuMessageCircleMore, LuX, LuMail, LuPhone } from "react-icons/lu";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { SlLocationPin, SlSocialFacebook } from "react-icons/sl";
+import {
+  facebookLink,
+  instagramLink,
+  mailLink,
+  ownerNumber,
+  saloonLocation,
+} from "@/utils/const";
 
 export function FloatingActionButton() {
   const [open, setOpen] = useState(false);
@@ -35,7 +42,7 @@ export function FloatingActionButton() {
       >
         {/* LOCATION */}
         <a
-          href="https://www.google.com/maps?ll=22.53171,88.308723&z=9&t=m&hl=en-US&gl=US&mapclient=embed&q=22%C2%B032%2706.5%22N+88%C2%B020%2745.9%22E+22.535145,+88.346088@22.535145,88.346088"
+          href={saloonLocation}
           target="_blank"
           className="flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-white shadow-md hover:bg-red-600"
         >
@@ -44,7 +51,7 @@ export function FloatingActionButton() {
 
         {/* INSTAGRAM */}
         <a
-          href="https://www.instagram.com/kiranfamilysalonandspa?utm_source=qr&igsh=MTdzOHkzYzQxbGZscA=="
+          href={instagramLink}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-md hover:opacity-90"
         >
           <FaInstagram className="size-6" />
@@ -52,7 +59,7 @@ export function FloatingActionButton() {
 
         {/* FACEBOOK */}
         <a
-          href="https://www.facebook.com/kiranfamilyandsalonspa"
+          href={facebookLink}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-md hover:bg-blue-700"
         >
           <SlSocialFacebook className="size-6" />
@@ -60,7 +67,7 @@ export function FloatingActionButton() {
 
         {/* WHATSAPP */}
         <a
-          href="https://wa.me/91XXXXXXXXXX"
+          href={`https://wa.me/91${ownerNumber}`}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-md hover:bg-green-600"
         >
           <FaWhatsapp className="size-6" />
@@ -68,7 +75,7 @@ export function FloatingActionButton() {
 
         {/* CALL */}
         <a
-          href="tel:+919875421774"
+          href={`tel:+91${ownerNumber}`}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-md hover:bg-emerald-600"
         >
           <LuPhone className="size-6" />
@@ -76,7 +83,7 @@ export function FloatingActionButton() {
 
         {/* MESSAGE (Generic / Email) */}
         <a
-          href="mailto:kiranfamilysalonandspa94@gmail.com"
+          href={`mailto:${mailLink}`}
           className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-500 text-white shadow-md hover:bg-gray-600"
         >
           <LuMail className="size-6" />

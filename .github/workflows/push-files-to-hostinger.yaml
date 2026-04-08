@@ -16,20 +16,23 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18"
+          node-version: "22"
+
+      - name: Install pnpm
+        run: npm install pnpm -g
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build React app
-        run: npm run build
+        run: pnpm run build
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: dist
+          local-dir: dist/
           server-dir: ${{ secrets.FTP_PATH }}
-          log-level: info
+          log-level: standard

@@ -6,6 +6,7 @@ import { useForm } from "@tanstack/react-form";
 import { LuMail, LuMapPin, LuPhone } from "react-icons/lu";
 import { FaInstagram, FaFacebook } from "react-icons/fa6";
 import { useSearchParams } from "react-router";
+import { ownerNumber, saloonLocation } from "@/utils/const";
 
 export default function Contact() {
   const search = useSearchParams();
@@ -24,7 +25,7 @@ export default function Contact() {
 
     onSubmit: ({ value }) => {
       const { fullName, service, phone, message } = value;
-      const url = new URL("https://wa.me/919875421774");
+      const url = new URL(`https://wa.me/91${ownerNumber}`);
       const text = `
 Hi, Kiran Family Salon and Spa!
 This is *${fullName}*,
@@ -66,7 +67,7 @@ ${message}
                 <LuMapPin className={cn(`size-6`)} />
               </span>
               <a
-                href="https://www.google.com/maps?ll=22.53171,88.308723&z=9&t=m&hl=en-US&gl=US&mapclient=embed&q=22%C2%B032%2706.5%22N+88%C2%B020%2745.9%22E+22.535145,+88.346088@22.535145,88.346088"
+                href={saloonLocation}
                 className="text-primary-500 hover:underline"
                 target="_blank"
               >
