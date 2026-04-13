@@ -10,6 +10,7 @@ import {
   ownerNumber,
   saloonLocation,
 } from "@/utils/const";
+import { cn } from "@/lib/utils/cn";
 
 export function FloatingActionButton() {
   const [open, setOpen] = useState(false);
@@ -44,49 +45,91 @@ export function FloatingActionButton() {
         <a
           href={saloonLocation}
           target="_blank"
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-white shadow-md hover:bg-red-600"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-white shadow-md hover:bg-red-600"
         >
           <SlLocationPin className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            location
+          </span>
         </a>
 
         {/* INSTAGRAM */}
         <a
           href={instagramLink}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-md hover:opacity-90"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-md hover:opacity-90"
         >
           <FaInstagram className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            instagram
+          </span>
         </a>
 
         {/* FACEBOOK */}
         <a
           href={facebookLink}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-md hover:bg-blue-700"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-blue-600 text-white shadow-md hover:bg-blue-700"
         >
           <SlSocialFacebook className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            facebook
+          </span>
         </a>
 
         {/* WHATSAPP */}
         <a
           href={`https://wa.me/91${ownerNumber}`}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-md hover:bg-green-600"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-md hover:bg-green-600"
         >
           <FaWhatsapp className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            whatsapp
+          </span>
         </a>
 
         {/* CALL */}
         <a
           href={`tel:+91${ownerNumber}`}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-md hover:bg-emerald-600"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-md hover:bg-emerald-600"
         >
           <LuPhone className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            phone
+          </span>
         </a>
 
         {/* MESSAGE (Generic / Email) */}
         <a
           href={`mailto:${mailLink}`}
-          className="flex h-14 w-14 items-center justify-center rounded-full bg-gray-500 text-white shadow-md hover:bg-gray-600"
+          className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-gray-500 text-white shadow-md hover:bg-gray-600"
         >
           <LuMail className="size-6" />
+          <span
+            className={cn(
+              `py-1/2 absolute top-1/2 right-full mr-4 -translate-y-1/2 rounded-sm bg-gray-800 px-2 opacity-0 group-hover:opacity-100`
+            )}
+          >
+            mail
+          </span>
         </a>
       </div>
 
